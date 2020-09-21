@@ -129,7 +129,7 @@ namespace SettingsProject
                         category: "General",
                         priority: 320,
                         editorType: "Enum"),
-                    new SettingValue("net5.0", "net5.0")
+                    new SettingValue("netstandard1.6", "netstandard1.6")
                     {
                         SupportedValues = ImmutableArray.Create(
                             new SupportedValue(".NET 5", "net5.0"),

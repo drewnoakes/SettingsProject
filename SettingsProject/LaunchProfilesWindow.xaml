@@ -5,9 +5,9 @@
   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
   xmlns:local="clr-namespace:SettingsProject"
+  xmlns:shell="clr-namespace:SettingsProject.Utils"
   mc:Ignorable="d"
   Icon="VisualStudio.Preview.ico"
-  Background="#FBFBFB"
   Title="{x:Static local:Resources.LaunchProfilesWindowTitleText}"
   Height="520"
   Width="800"
@@ -48,16 +48,16 @@
         </Grid.ColumnDefinitions>
 
         <!-- Profile List and Management -->
-        <Border Background="#eeeeee" Padding="8,0,0,8">
+        <Border Background="{DynamicResource {x:Static shell:VsBrushes.ToolWindowBackgroundKey}}" Padding="8,0,0,8">
           <DockPanel>
 
-            <ToolBar DockPanel.Dock="Top" BorderThickness="0" Background="#eeeeee" ToolBarTray.IsLocked="True" OverflowMode="Never">
+            <ToolBar DockPanel.Dock="Top" BorderThickness="0" Background="{DynamicResource {x:Static shell:VsBrushes.ToolWindowBackgroundKey}}" ToolBarTray.IsLocked="True" OverflowMode="Never">
               <Menu VerticalAlignment="Center">
                 <MenuItem ToolTip="{x:Static local:Resources.LaunchProfileMenuNewToolTip}" ItemsSource="{Binding Path=ProfileKinds}" UsesItemContainerTemplate="False">
                   <MenuItem.Header>
                     <StackPanel Orientation="Horizontal">
-                      <TextBlock Text="{x:Static local:Resources.LaunchProfileMenuNewText}" />
-                      <Path Fill="Black" Data="M 0 0 H 6 L 3 4 Z" VerticalAlignment="Center" Margin="4,0,0,0" SnapsToDevicePixels="True" />
+                      <TextBlock Text="{x:Static local:Resources.LaunchProfileMenuNewText}" Foreground="{DynamicResource {x:Static shell:VsBrushes.ToolWindowTextKey}}" />
+                      <Path Fill="{DynamicResource {x:Static shell:VsBrushes.ToolWindowTextKey}}" Data="M 0 0 H 6 L 3 4 Z" VerticalAlignment="Center" Margin="4,0,0,0" SnapsToDevicePixels="True" />
                     </StackPanel>
                   </MenuItem.Header>
                   <MenuItem.ItemContainerStyle>
@@ -93,7 +93,7 @@
                      SelectedItem="{Binding SelectedProfile}"
                      BorderThickness="0"
                      BorderBrush="Transparent"
-                     Background="#FBFBFB">
+                     Background="{DynamicResource {x:Static shell:VsBrushes.WindowKey}}">
               <ListBox.InputBindings>
                 <KeyBinding Key="F2" Command="{Binding RenameCommand}" />
               </ListBox.InputBindings>
@@ -113,7 +113,7 @@
           </DockPanel>
         </Border>
 
-        <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch" Width="16" Background="#eeeeee" BorderThickness="0" SnapsToDevicePixels="True" />
+        <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch" Width="16" Background="{DynamicResource {x:Static shell:VsBrushes.ToolWindowBackgroundKey}}" BorderThickness="0" SnapsToDevicePixels="True" />
 
         <!-- Profile Edit -->
         <local:SettingsList Grid.Column="2" Settings="{Binding Path=SelectedProfile.Settings}" />
@@ -123,6 +123,8 @@
 
   </Window.Resources>
 
-  <ContentPresenter Content="{Binding}" />
+  <Border Background="{DynamicResource {x:Static shell:VsBrushes.WindowKey}}">
+    <ContentPresenter Content="{Binding}" />
+  </Border>
 
 </Window>

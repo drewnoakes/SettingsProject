@@ -4,6 +4,7 @@
   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+  xmlns:shell="clr-namespace:SettingsProject.Utils"
   xmlns:local="clr-namespace:SettingsProject"
   mc:Ignorable="d"
   d:DesignHeight="450"
@@ -11,7 +12,8 @@
   Name="_searchBox">
 
   <Border BorderThickness="1"
-          BorderBrush="{x:Static SystemColors.ActiveBorderBrush}"
+          Background="{DynamicResource {x:Static shell:VsBrushes.SearchBoxBackgroundKey}}"
+          BorderBrush="{DynamicResource {x:Static shell:VsBrushes.SearchBoxBorderKey}}"
           SnapsToDevicePixels="True">
 
     <Grid>
@@ -45,7 +47,7 @@
                 Text="&#xE947;"
                 VerticalAlignment="Center"
                 FontSize="16"
-                Foreground="#888"
+                Foreground="{DynamicResource {x:Static shell:VsBrushes.DesignerWatermarkKey}}"
                 Visibility="{Binding ElementName=_searchBox, Path=SearchText, Converter={x:Static local:Converters.CollapsedWhenEmptyString}}" />
             </Border>
           </ControlTemplate>

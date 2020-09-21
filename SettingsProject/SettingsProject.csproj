@@ -103,6 +103,7 @@
     <Compile Include="SettingValueComboBoxViewModel.cs" />
     <Compile Include="NavigationViewModel.cs" />
     <Compile Include="Utils\VisualTreeUtil.cs" />
+    <Compile Include="Utils\VsBrushes.cs" />
     <Page Include="LaunchProfilesWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -124,6 +125,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\SearchBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\BlueTheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\DarkTheme.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
